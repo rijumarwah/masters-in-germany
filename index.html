@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>German Masters Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #f8f7f4;
+  --surface: #ffffff;
+  --border: #e4e1db;
+  --border-light: #edeae4;
+  --text: #1a1914;
+  --text-muted: #64615b;
+  --text-faint: #a09c95;
+  --accent: #1a5c2e;
+  --accent-light: #edf7f1;
+  --accent-border: #b2d9c0;
+  --red: #b83418;
+  --red-light: #fdf0ec;
+  --blue: #1d5899;
+  --blue-light: #edf3fb;
+  --amber: #865005;
+  --amber-light: #fdf6ec;
+  --amber-border: #e5cc98;
+  --serif: 'Lora', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --max: 860px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); font-size: 15.5px; line-height: 1.72; -webkit-font-smoothing: antialiased; font-weight: 300; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(248,247,244,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 50px;
+}
+.nav-brand { font-family: var(--serif); font-size: 13.5px; color: var(--text-muted); white-space: nowrap; font-weight: 400; }
+.nav-links { display: flex; gap: 22px; list-style: none; }
+.nav-links a { font-size: 12.5px; color: var(--text-muted); text-decoration: none; transition: color .15s; font-weight: 400; letter-spacing: .01em; }
+.nav-links a:hover { color: var(--text); }
+
+/* HERO */
+.hero { max-width: var(--max); margin: 0 auto; padding: 4.5rem 2rem 2.75rem; text-align: center; }
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4.8vw, 43px);
+  font-weight: 400; line-height: 1.2;
+  letter-spacing: -.01em;
+  max-width: 700px; margin: 0 auto 1.25rem;
+  color: var(--text);
+}
+.hero-sub {
+  font-size: 15px; color: var(--text-muted);
+  max-width: 580px; margin: 0 auto 1.6rem;
+  line-height: 1.75; font-weight: 300;
+}
+.hero-sub strong { color: var(--text); font-weight: 500; }
+.author-note {
+  font-size: 13px; color: var(--text-faint);
+  border-top: 1px solid var(--border-light);
+  padding-top: 1.25rem;
+  max-width: 580px; margin: 0 auto;
+  line-height: 1.7;
+}
+.author-note strong { color: var(--text-muted); font-weight: 500; }
+
+/* STAT STRIP */
+.stat-strip { max-width: var(--max); margin: 0 auto; padding: 0 2rem 3rem; }
+.stat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+.stat-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.1rem 1rem; text-align: center;
+}
+.stat-num { font-family: var(--serif); font-size: 30px; line-height: 1; margin-bottom: 6px; font-weight: 400; }
+.stat-num.g { color: var(--accent); }
+.stat-num.a { color: var(--amber); }
+.stat-num.b { color: var(--blue); }
+.stat-num.r { color: var(--red); }
+.stat-label { font-size: 11.5px; color: var(--text-muted); line-height: 1.45; font-weight: 400; }
+
+/* PART HEADERS */
+.part-header {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-light);
+  background: var(--surface);
+  padding: .85rem 2rem;
+}
+.part-header-inner {
+  max-width: var(--max); margin: 0 auto;
+  display: flex; align-items: baseline; gap: 1rem;
+}
+.part-number { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--text-faint); flex-shrink: 0; font-weight: 400; }
+.part-title  { font-size: 13px; font-weight: 500; color: var(--text-muted); letter-spacing: .01em; }
+
+/* SECTIONS */
+.section { max-width: var(--max); margin: 0 auto; padding: 2.75rem 2rem; }
+.section + .section { padding-top: 0; }
+.section-label {
+  font-family: var(--mono); font-size: 9.5px; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 1.1rem;
+}
+.page-divider { max-width: var(--max); margin: 0 auto; border: none; border-top: 1px solid var(--border-light); }
+
+/* BODY TEXT */
+.body-text { font-size: 15px; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.25rem; font-weight: 300; }
+.body-text strong { color: var(--text); font-weight: 500; }
+.body-text:last-child { margin-bottom: 0; }
+
+/* CALLOUT BOXES */
+.callout {
+  border-radius: 0 8px 8px 0; padding: 1rem 1.4rem;
+  margin-bottom: 1.25rem; font-size: 14px; line-height: 1.72;
+  border-left: 3px solid; font-weight: 300;
+}
+.callout strong { font-weight: 500; }
+.callout-green { background: var(--accent-light); border-color: var(--accent); color: #1a4a2a; }
+.callout-amber { background: var(--amber-light); border-color: var(--amber); color: #5a3800; }
+.callout-red   { background: var(--red-light);   border-color: var(--red);   color: #7a2008; }
+.callout-blue  { background: var(--blue-light);  border-color: var(--blue);  color: #0f3a6a; }
+
+/* STEP CARDS */
+.steps { display: flex; flex-direction: column; gap: 3px; }
+.step {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.35rem 1.5rem;
+  display: grid; grid-template-columns: 44px 1fr; gap: 1rem;
+  transition: border-color .15s;
+}
+.step:hover { border-color: #c5c2bb; }
+.step-num {
+  font-family: var(--serif); font-style: italic;
+  font-size: 26px; color: var(--accent); line-height: 1;
+  padding-top: 2px; font-weight: 400;
+}
+.step-title { font-size: 13.5px; font-weight: 500; margin-bottom: 5px; color: var(--text); }
+.step-body  { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+.step-body strong { color: var(--text); font-weight: 500; }
+
+/* TWO-COL CARDS */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+.info-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.25rem; position: relative; overflow: hidden;
+}
+.info-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; border-radius: 10px 10px 0 0;
+}
+.info-card.green::before { background: var(--accent); }
+.info-card.blue::before  { background: var(--blue); }
+.info-card.amber::before { background: var(--amber); }
+.info-card.red::before   { background: var(--red); }
+.card-tag { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; color: var(--text-faint); margin-bottom: 5px; }
+.card-title { font-size: 13.5px; font-weight: 500; margin-bottom: 8px; color: var(--text); }
+.card-body  { font-size: 13px; color: var(--text-muted); line-height: 1.62; font-weight: 300; }
+.card-body strong { color: var(--text); font-weight: 500; }
+
+/* THREE-COL CARDS */
+.three-col { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 1.5rem; }
+
+/* TIMELINE */
+.timeline { display: flex; flex-direction: column; }
+.tl-item {
+  display: grid; grid-template-columns: 130px 1fr;
+  gap: .75rem; padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border-light);
+  align-items: start;
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-date {
+  font-family: var(--mono); font-size: 10.5px; color: var(--accent);
+  font-weight: 500; padding-top: 3px; line-height: 1.45;
+}
+.tl-body { font-size: 14px; color: var(--text-muted); line-height: 1.68; font-weight: 300; }
+.tl-body strong { color: var(--text); font-weight: 500; }
+
+/* CHECKLIST */
+.checklist { display: flex; flex-direction: column; gap: 2px; margin-bottom: 1.5rem; }
+.check-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: .85rem 1rem;
+  font-size: 13px; color: var(--text-muted); line-height: 1.62; font-weight: 300;
+}
+.check-item strong { color: var(--text); font-weight: 500; }
+.check-icon {
+  width: 17px; height: 17px; border-radius: 50%;
+  border: 1.5px solid var(--border);
+  flex-shrink: 0; margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* TABLE */
+.guide-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.guide-table th {
+  font-weight: 500; font-size: 10.5px; text-align: left;
+  padding: 8px 12px; border-bottom: 1px solid var(--border);
+  color: var(--text-muted); font-family: var(--mono); letter-spacing: .06em;
+  background: var(--bg);
+}
+.guide-table td {
+  padding: 10px 12px; border-bottom: 1px solid var(--border-light);
+  vertical-align: top; color: var(--text-muted); line-height: 1.55; font-weight: 300;
+}
+.guide-table tr:last-child td { border-bottom: none; }
+.guide-table td:first-child { font-weight: 500; color: var(--text); }
+.guide-table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; }
+
+/* DOC LIST */
+.doc-list { display: flex; flex-direction: column; }
+.doc-item {
+  display: grid; grid-template-columns: 88px 1fr;
+  gap: .75rem; padding: 1rem 0;
+  border-bottom: 1px solid var(--border-light);
+  align-items: start;
+}
+.doc-item:last-child { border-bottom: none; }
+.doc-tag { font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em; color: var(--text-faint); padding-top: 3px; line-height: 1.5; }
+.doc-body { font-size: 14px; color: var(--text-muted); line-height: 1.68; font-weight: 300; }
+.doc-body strong { color: var(--text); font-weight: 500; }
+
+/* MONO BLOCK */
+.mono-block {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden; margin-bottom: 1.25rem;
+}
+.mono-header {
+  padding: 7px 14px; background: var(--bg);
+  border-bottom: 1px solid var(--border-light);
+  font-family: var(--mono); font-size: 10.5px; color: var(--text-faint);
+}
+.mono-body {
+  padding: .9rem 1.1rem; font-family: var(--mono);
+  font-size: 12px; color: var(--text-muted);
+  line-height: 1.85; overflow-x: auto; white-space: pre;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border-light);
+  padding: 2rem; text-align: center;
+  font-size: 12px; color: var(--text-faint); line-height: 1.9; font-weight: 300;
+}
+footer a { color: var(--blue); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  .hero, .stat-strip, .section { padding-left: 1rem; padding-right: 1rem; }
+  .stat-grid { grid-template-columns: repeat(2,1fr); }
+  .two-col, .three-col { grid-template-columns: 1fr; }
+  .step { grid-template-columns: 1fr; }
+  .step-num { font-size: 20px; }
+  .tl-item { grid-template-columns: 1fr; gap: .3rem; }
+  .tl-date { font-size: 11px; }
+  .doc-item { grid-template-columns: 1fr; gap: .2rem; }
+  .doc-tag { font-size: 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Masters in Germany - A Guide for Indian Students</span>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#documents">Documents</a></li>
+    <li><a href="#aps">APS</a></li>
+    <li><a href="#vpd">VPD</a></li>
+    <li><a href="#applying">Applying</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>How to Get into a German University for Your Masters</h1>
+  <p class="hero-sub">
+    A practical guide based on a <strong>real application cycle</strong> that resulted in acceptances from multiple German universities across AI, Machine Learning, and Data Science programs. Written for <strong>Indian students applying to Masters programs</strong> in Computer Science and related fields.
+  </p>
+  <p class="author-note">
+    Written by an Indian CS graduate who applied to 12+ German universities for Winter 2026/27 and navigated APS, VPD, direct applications, and everything in between.
+    The most important thing to know upfront: <strong>your prerequisites are everything.</strong> If your bachelors coursework does not match what the university requires, you will not get in, no matter how strong the rest of your application looks.
+  </p>
+</div>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-num g">12+</div>
+      <div class="stat-label">German universities applied to in one cycle</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num a">~14 days</div>
+      <div class="stat-label">APS processing time (applied Oct 22, received Nov 5)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num b">~6 weeks</div>
+      <div class="stat-label">VPD processing time (applied April, received May 27)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num r">€0</div>
+      <div class="stat-label">Tuition at most public German universities (small semester fee only)</div>
+    </div>
+  </div>
+</div>
+
+<!-- PART I -->
+<div class="part-header" id="overview">
+  <div class="part-header-inner">
+    <span class="part-number">Part I</span>
+    <span class="part-title">Understanding the Landscape</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">This guide is for Masters, not Bachelors</div>
+  <p class="body-text">
+    Everything here applies to <strong>Masters (M.Sc.) applications</strong> at German public universities. The bachelors process is different and not covered here. German Masters programs in CS and AI are genuinely strong, mostly free, and absolutely achievable for a well-prepared Indian applicant. The challenge is navigating a system that is unfamiliar and full of steps that are easy to miss.
+  </p>
+  <p class="body-text">
+    The author of this guide studied Computer Science and applied to over a dozen German universities for programs in Machine Learning, AI, Data Science, and CS. The guide is built directly from that experience.
+  </p>
+
+  <div class="callout callout-amber" style="margin-top:1.5rem">
+    <strong>The single most important thing:</strong> your prerequisites. German university admissions are largely decided by whether your bachelors coursework maps onto what they require. Theory of Computation, Algorithms, Mathematics, Programming. If those are not on your transcript, you will likely be rejected before anyone even reads your motivation letter. Check prerequisites before you apply to anything.
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">Two types of applications</div>
+  <div class="two-col">
+    <div class="info-card green">
+      <div class="card-tag">Type A</div>
+      <div class="card-title">Direct Application</div>
+      <div class="card-body">You apply straight through the university's own portal. No third-party document verification needed. Simpler, faster, and free to apply. <strong>Examples:</strong> University of Bonn, Göttingen, Augsburg, Freiburg, Hamburg, Heidelberg.</div>
+    </div>
+    <div class="info-card blue">
+      <div class="card-tag">Type B</div>
+      <div class="card-title">uni-assist / VPD Required</div>
+      <div class="card-body">You must first submit documents to uni-assist, a centralized verification service, which issues a VPD that you then attach to your university application. <strong>Examples:</strong> TU Berlin, FU Berlin, TU Dresden. Costs around €95 per university and takes 4 to 8 weeks.</div>
+    </div>
+  </div>
+  <p class="body-text">
+    Your shortlist will likely have a mix of both. Direct-application universities are simpler to handle first. VPD universities require you to start the uni-assist process months before the university's own deadline, so plan well ahead.
+  </p>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">Tuition and costs</div>
+  <p class="body-text">
+    Most German public universities charge <strong>no tuition fees</strong>. You pay a semester contribution (Semesterbeitrag) of roughly €300 to €400, which usually includes a public transport pass for the city. The exception is universities in Baden-Württemberg state (Freiburg, Heidelberg, Karlsruhe), which charge <strong>€1,500 per semester for non-EU students</strong> on top of the semester fee. Still very low compared to most alternatives.
+  </p>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">The 99% rejection warning</div>
+  <p class="body-text">
+    Several German universities explicitly state that over 99% of applications from Indian students are rejected. This sounds alarming but it points to a very specific problem: <strong>most Indian applicants do not meet the prerequisites</strong>. Common gaps include missing Theory of Computation, a final year project that reads like a software report rather than a scientific thesis, and transcripts without enough mathematics coverage. The rejection rate is not a reflection of talent. It is a mismatch between what many Indian B.Tech programs cover and what German research universities require. If your coursework is strong and your documents are in order, you have a real shot.
+  </p>
+</div>
+
+<!-- PART II -->
+<div class="part-header" id="timeline">
+  <div class="part-header-inner">
+    <span class="part-number">Part II</span>
+    <span class="part-title">When to Do What</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">The full timeline for Winter Semester (starts October)</div>
+  <p class="body-text">
+    The Winter Semester starts in October and is the main intake for Masters programs. Most non-EU application windows open between February and June of the same year. Here is how the full cycle looks based on the real experience this guide draws from.
+  </p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">Aug – Sep<br>(year before)</div>
+      <div class="tl-body"><strong>Build your university shortlist.</strong> Research programs, check prerequisites against your transcript, and note which universities require VPD and which accept direct applications. A spreadsheet tracking each university, its deadline, portal type, and required documents is genuinely useful here.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">October<br>(year before)</div>
+      <div class="tl-body"><strong>Apply for your APS certificate straight away.</strong> The APS is mandatory for all Indian applicants to German universities and takes time. In the cycle this guide is based on, the APS was submitted around October 22 and received on November 5, roughly two weeks. Start earlier to be safe, as timelines can vary. See Part IV for exactly what you need.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Nov – Jan</div>
+      <div class="tl-body"><strong>Prepare your core documents.</strong> Write your CV in German academic format (reverse chronological, no gaps over three months, countries of residence listed). Draft your motivation letter template. Gather all semester transcripts, properly stamped and scanned. Book and take your TOEFL if you have not already. Aim for 95+ iBT; some programs require 100+ for C1 level.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Feb – Mar</div>
+      <div class="tl-body"><strong>Early application windows open.</strong> Heidelberg (Feb 1 to Mar 15), Hamburg (Feb 15 to Mar 31), and several others open portals in this window. Apply as soon as the portal opens. Do not wait until the deadline. Some programs review on a rolling basis and fill up.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Early to Mid April</div>
+      <div class="tl-body"><strong>Submit VPD applications to uni-assist</strong> for any universities that require it (TU Berlin, FU Berlin, TU Dresden, and others). In the experience this guide draws from, VPDs were submitted in early to mid April and all three were received on May 27. Give yourself at least 6 to 8 weeks before the university portal deadline.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Apr – May</div>
+      <div class="tl-body"><strong>Mid-cycle application windows.</strong> Göttingen, Freiburg, Augsburg, and Bonn portals are typically open during this period. Complete your prerequisite mapping documents for each university and customize your motivation letter, especially the professor paragraph.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Late May – Jul</div>
+      <div class="tl-body"><strong>VPDs arrive, then apply to VPD universities immediately.</strong> TU Dresden's portal opens June 1 with a July 15 deadline. TU Berlin runs roughly May through mid-July. FU Berlin's deadline is May 31. Note that RWTH Aachen has an unusually early deadline (around March 15) so that one needs to be handled much earlier.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Jul – Sep</div>
+      <div class="tl-body"><strong>Decisions arrive.</strong> Some universities notify by July 15 (Bonn targets this for non-EU applicants). Others take until August or September. Offers usually come with an acceptance deadline of a few weeks. Apply for your student visa as soon as you accept an offer, since it takes 8 to 12 weeks.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">On acceptance</div>
+      <div class="tl-body"><strong>Apply for student accommodation immediately.</strong> Dorm waiting lists in German university cities run months long. As soon as you have any offer, apply to the Studentenwerk (student services organization) for that city. Do not wait until you have decided which university to attend. Apply in every city you have an offer from. See Part VI for more on this.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">University deadlines at a glance</div>
+  <div class="guide-table-wrap">
+    <table class="guide-table">
+      <thead>
+        <tr>
+          <th>University</th>
+          <th>Application Type</th>
+          <th>Portal Opens (est.)</th>
+          <th>Non-EU Deadline (est.)</th>
+          <th>Program</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Heidelberg University</td><td>Direct</td><td>Feb 1</td><td>Mar 15</td><td>M.Sc. Data &amp; Computer Science</td></tr>
+        <tr><td>University of Hamburg</td><td>Direct (STiNE)</td><td>Feb 15</td><td>Mar 31</td><td>M.Sc. Intelligent Adaptive Systems</td></tr>
+        <tr><td>University of Göttingen</td><td>Direct</td><td>Mid-March</td><td>Apr 15</td><td>M.Sc. Applied Data Science</td></tr>
+        <tr><td>University of Augsburg</td><td>Direct</td><td>Mar 1</td><td>May 1</td><td>M.Sc. Software Engineering (Elite)</td></tr>
+        <tr><td>University of Bonn</td><td>Direct</td><td>~Mar 1</td><td>May 1 (non-EU: Jun 1)</td><td>M.Sc. Computer Science / AI</td></tr>
+        <tr><td>University of Freiburg</td><td>Direct</td><td>Apr 15</td><td>May 31</td><td>M.Sc. Computer Science</td></tr>
+        <tr><td>RWTH Aachen</td><td>Direct</td><td>~Nov</td><td>Mar 15</td><td>M.Sc. Computer Engineering</td></tr>
+        <tr><td>Freie Universität Berlin</td><td>uni-assist (VPD)</td><td>April</td><td>May 31</td><td>M.Sc. Data Science</td></tr>
+        <tr><td>TU Berlin</td><td>uni-assist (VPD)</td><td>~Apr / May</td><td>Late May to mid-Jul</td><td>M.Sc. Computer Science</td></tr>
+        <tr><td>TU Dresden</td><td>uni-assist (VPD)</td><td>VPD: Apr 1 · Portal: Jun 1</td><td>Jul 15</td><td>M.Sc. Computer Science (English)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="body-text" style="font-size:12.5px; color:var(--text-faint); margin-top:-.5rem">Dates are estimates based on past cycles. Always verify on the official university website before applying. RWTH Aachen has an unusually early deadline and needs to be handled separately from the rest of your list.</p>
+</div>
+
+<!-- PART III -->
+<div class="part-header" id="documents">
+  <div class="part-header-inner">
+    <span class="part-number">Part III</span>
+    <span class="part-title">Documents You Need</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">The full document list by stage</div>
+  <p class="body-text">
+    Different stages of the process need different sets of documents. Prepare everything before you start applying so you are not scrambling mid-process.
+  </p>
+
+  <div class="section-label" style="margin-top: 1.5rem">For your APS application</div>
+  <div class="doc-list">
+    <div class="doc-item">
+      <div class="doc-tag">PASSPORT</div>
+      <div class="doc-body"><strong>Valid passport</strong> scanned copy, all pages with personal data.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">SCHOOL MARKS</div>
+      <div class="doc-body"><strong>10th and 12th grade marksheets</strong> as scanned originals. Digilocker printouts are not accepted. You need the physical original certificate scanned, not a downloaded PDF from a government portal.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">APS FORM</div>
+      <div class="doc-body"><strong>Completed APS application form</strong> downloaded from aps-india.de. Your name and date of birth must match your passport exactly.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">FEE PROOF</div>
+      <div class="doc-body"><strong>APS fee payment confirmation</strong> — screenshot or PDF of the payment receipt after paying online.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">BONAFIDE</div>
+      <div class="doc-body"><strong>Bonafide / enrollment certificate</strong> from your current university, dated recently, with the registrar's stamp and signature.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">NAAC CERT</div>
+      <div class="doc-body"><strong>NAAC accreditation certificate</strong> of your university. Download this from the NAAC website for your institution.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">TRANSCRIPTS</div>
+      <div class="doc-body"><strong>All semester-wise transcripts</strong> available so far, each semester separately. Include the grading scale explanation page from your university.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">TOEFL / IELTS</div>
+      <div class="doc-body"><strong>English test score report.</strong> The official PDF from ETS works for TOEFL. Aim for 95+ iBT; some programs require 100+ for C1 level.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">AUTH LETTER</div>
+      <div class="doc-body"><strong>Student authorization letter</strong> from your institution authorizing the APS to verify your documents. Your college registrar or administration issues this.</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top: 2rem">For your VPD application (uni-assist)</div>
+  <p class="body-text">The VPD builds on your APS. By the time you apply for VPDs you should already have the APS certificate in hand.</p>
+  <div class="doc-list">
+    <div class="doc-item">
+      <div class="doc-tag">APS CERT</div>
+      <div class="doc-body"><strong>Your APS certificate</strong> is the primary document that unlocks the VPD process. uni-assist will not process your application without it.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">ENROLLMENT</div>
+      <div class="doc-body"><strong>Enrollment / bonafide certificate</strong> — current, stamped, signed. If your university does not issue a German-style enrollment certificate, you can write a short enrollment summary yourself (one paragraph covering your university name, degree, enrollment dates, and current status). This is explicitly accepted for non-EU applicants.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">FEE RECEIPT</div>
+      <div class="doc-body"><strong>Semester fee payment receipt</strong> from your university. This confirms active enrollment.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">PASSPORT</div>
+      <div class="doc-body"><strong>Passport copy</strong> same as for APS.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">SCHOOL MARKS</div>
+      <div class="doc-body"><strong>10th and 12th marksheets</strong> same scanned originals as APS.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">TOEFL / IELTS</div>
+      <div class="doc-body"><strong>English test score report.</strong></div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">TRANSCRIPTS</div>
+      <div class="doc-body"><strong>All semester-wise transcripts</strong> same as APS documents.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">APTITUDE TEST</div>
+      <div class="doc-body"><strong>Some universities require an online aptitude questionnaire as part of the VPD process</strong> where you map your courses to their required subject areas. TU Dresden is one example. Not all VPD universities need this, but check each one individually.</div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top: 2rem">For university applications (direct or after VPD)</div>
+  <div class="doc-list">
+    <div class="doc-item">
+      <div class="doc-tag">CV</div>
+      <div class="doc-body"><strong>CV in German academic format (Lebenslauf)</strong> — reverse chronological order, every period accounted for with no gaps over three months, countries of residence listed. No photo needed. Include education, research internships, publications, and awards. See Part V for how to write this.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">MOT. LETTER</div>
+      <div class="doc-body"><strong>Motivation letter</strong> required by most universities. Usually entered directly into the application portal with a character limit, not uploaded as a file. Must name specific professors you want to work with. See Part V for how to approach this.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">PREREQS</div>
+      <div class="doc-body"><strong>Prerequisite mapping document</strong> — a table showing each required subject area, which of your courses covers it, and how many credits. You will also fill this out directly in most application portals (called the aptitude test or technical qualifications section). This is the most important part of your application. More on this in Part V.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">TRANSCRIPTS</div>
+      <div class="doc-body"><strong>All semester-wise transcripts</strong> as a single merged PDF. Include your university's grading scale explanation page.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">DEGREE CERT</div>
+      <div class="doc-body"><strong>Bachelor's degree certificate</strong> if already issued. If not yet issued, you submit an Expected Completion Form instead, stamped by your examination office. See Part V for how to fill this out.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">TOEFL / IELTS</div>
+      <div class="doc-body"><strong>Official score report.</strong> A letter from your college saying your program was taught in English is not accepted at most German universities.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">LOR</div>
+      <div class="doc-body"><strong>Letters of Recommendation</strong> — most German university portals do not have a dedicated LOR section. However, most allow additional document uploads, and a strong letter from a recognized research supervisor can help. Upload it as an additional document.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">THESIS</div>
+      <div class="doc-body"><strong>Bachelor's thesis</strong> — must be a scientific document that frames a research question against existing literature. A software project report without a research context is not sufficient. Some universities weight this section very heavily.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">MODULE BOOK</div>
+      <div class="doc-body"><strong>University module handbook / official course syllabus</strong> — the document from your university describing what each course covers. Download it from your university's website. You will need it to support your prerequisite mapping, and some universities explicitly ask you to upload it.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">EXTRAS</div>
+      <div class="doc-body"><strong>Internship certificates, research papers, conference letters</strong> — upload these as additional documents where allowed. A published or accepted paper at a strong venue carries significant weight. Internship certificates should document dates, tasks, and duration.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PART IV -->
+<div class="part-header" id="aps">
+  <div class="part-header-inner">
+    <span class="part-number">Part IV</span>
+    <span class="part-title">APS and VPD — The India-Specific Steps</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">The APS certificate</div>
+  <p class="body-text">
+    The APS (Akademische Prüfstelle, or Academic Evaluation Centre) certificate is <strong>mandatory for every Indian applicant</strong> to any German university. It is issued by the German Embassy in New Delhi and verifies that your academic documents are genuine. Without it, your application will be rejected at the initial screening stage regardless of how strong your profile is.
+  </p>
+
+  <div class="callout callout-red">
+    <strong>Apply for APS as early as possible.</strong> In the best case it takes around two weeks (submitted October 22, received November 5 in the real cycle this guide covers). It can take longer. If you are targeting Winter Semester, aim to have your certificate by November at the latest. This is not something to leave for February.
+  </div>
+
+  <div class="steps" style="margin-top:1.5rem">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Register on the APS India website</div>
+        <div class="step-body">Go to <strong>aps-india.de</strong> and create an account. Start your application there. Your name and date of birth must match your passport exactly — any mismatch causes delays.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Upload your documents and pay the fee</div>
+        <div class="step-body">Upload scanned originals of your 10th and 12th marksheets (not Digilocker downloads), all university transcripts semester by semester, bonafide certificate, NAAC certificate, TOEFL score, and student authorization letter. Pay the APS fee and upload the payment proof.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Attend the interview at the German Embassy</div>
+        <div class="step-body">You will be called for an in-person interview at the German Embassy in New Delhi or the nearest consulate. Bring all original documents. The interview is a verification process checking that what you submitted matches what you have in hand.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Receive your APS certificate</div>
+        <div class="step-body">Once verified you receive your APS certificate. Store it carefully. You will need it for every German university application you submit, including the VPD process.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0" id="vpd">
+  <div class="section-label">The VPD (for uni-assist universities)</div>
+  <p class="body-text">
+    The VPD (Vorprüfungsdokumentation) is a pre-evaluation document issued by uni-assist. For universities that require it, you must submit your documents to uni-assist first, receive the VPD, then attach it to your university portal application. You cannot skip this step.
+  </p>
+
+  <div class="two-col">
+    <div class="info-card amber">
+      <div class="card-tag">Cost</div>
+      <div class="card-title">Around €95 per university</div>
+      <div class="card-body">A one-time uni-assist membership fee of around €20 plus roughly €75 per university. Only apply for VPDs at universities you are seriously considering.</div>
+    </div>
+    <div class="info-card blue">
+      <div class="card-tag">Time</div>
+      <div class="card-title">4 to 8 weeks</div>
+      <div class="card-body">In the real application this guide covers, VPDs were submitted in early to mid April and received on May 27 for all three universities. Apply early to give yourself buffer before university portal deadlines.</div>
+    </div>
+  </div>
+
+  <div class="steps" style="margin-top:1.25rem">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Create a uni-assist account and pay the membership fee</div>
+        <div class="step-body">Go to <strong>uni-assist.de</strong> and create an account. Pay the one-time membership fee, then add each university you need a VPD for and pay the per-university fee.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Upload your documents</div>
+        <div class="step-body">Submit your APS certificate, all semester transcripts, 10th and 12th marksheets, TOEFL score, enrollment certificate and fee receipt, and passport copy. Some universities (TU Dresden for example) also require you to complete an aptitude questionnaire within the uni-assist system where you map your courses to required subject areas.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Wait for uni-assist to process</div>
+        <div class="step-body">uni-assist reviews your documents and converts your GPA to the German grading scale. A CGPA of around 8.2/10 typically converts to roughly 1.8 on the German 1.0 to 5.0 scale. The VPD they issue reflects this conversion.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Receive the VPD and apply to the university</div>
+        <div class="step-body">Once you receive your VPD, go to the university's own application portal and complete your application there. Upload the VPD alongside your other documents. The university will not process applications without it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-green" style="margin-top:1.5rem">
+    <strong>VPD validity:</strong> The VPD must not be older than one year at the time of application. If you have a VPD from a previous cycle, check whether it is still valid.
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">Converting your GPA to the German scale</div>
+  <p class="body-text">
+    German universities use a scale from 1.0 (best) to 5.0 (fail), where 4.0 is the minimum passing grade. To understand where you stand, use the Modified Bavarian Formula, which is the standard used for Indian applicants.
+  </p>
+  <div class="callout callout-blue">
+    <strong>Formula:</strong> German Grade = 1 + 3 × ((Maximum Grade - Your Grade) / (Maximum Grade - Minimum Passing Grade))<br><br>
+    <strong>Example (10-point scale, CGPA 8.23, passing grade 4.0):</strong> 1 + 3 × ((10.0 - 8.23) / (10.0 - 4.0)) = 1.885, rounds to <strong>1.9 — Gut (Good).</strong>
+  </div>
+  <div class="guide-table-wrap" style="margin-top:1rem">
+    <table class="guide-table">
+      <thead><tr><th>German Grade</th><th>Meaning</th><th>Rough CGPA equivalent (10-point scale)</th></tr></thead>
+      <tbody>
+        <tr><td>1.0 to 1.5</td><td>Sehr gut — Very Good</td><td>~9.0 and above</td></tr>
+        <tr><td>1.6 to 2.5</td><td>Gut — Good</td><td>~7.5 to 9.0</td></tr>
+        <tr><td>2.6 to 3.5</td><td>Befriedigend — Satisfactory</td><td>~6.0 to 7.5</td></tr>
+        <tr><td>3.6 to 4.0</td><td>Ausreichend — Pass</td><td>~5.0 to 6.0</td></tr>
+        <tr><td>4.1 to 5.0</td><td>Nicht bestanden — Fail</td><td>Below ~5.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PART V -->
+<div class="part-header" id="applying">
+  <div class="part-header-inner">
+    <span class="part-number">Part V</span>
+    <span class="part-title">The Application Itself</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Prerequisites — the heart of your application</div>
+  <p class="body-text">
+    This cannot be overstated: <strong>your prerequisites determine whether you get in.</strong> Every German Masters program in CS, AI, or Data Science has a list of required subject areas with minimum credit thresholds. If your transcript does not cover them, you are rejected at the eligibility screening stage before anyone reads your motivation letter or sees your publications.
+  </p>
+  <p class="body-text">
+    For most CS and AI programs the required areas look something like this, though exact requirements vary by university and you should always check the specific program page:
+  </p>
+
+  <div class="guide-table-wrap">
+    <table class="guide-table">
+      <thead><tr><th>Subject Area</th><th>Typical Minimum</th><th>What counts</th></tr></thead>
+      <tbody>
+        <tr><td>Algorithms and Theory</td><td>14 ECTS</td><td>DSA, Design and Analysis of Algorithms, Theory of Computation, Discrete Mathematics, Automata Theory</td></tr>
+        <tr><td>Programming and Software</td><td>20 ECTS</td><td>Programming courses, Software Engineering, labs and practicals</td></tr>
+        <tr><td>Mathematics</td><td>18 ECTS</td><td>Calculus, Linear Algebra, Probability and Statistics, Numerical Methods</td></tr>
+        <tr><td>Bachelor's Thesis</td><td>12 ECTS</td><td>Must be a scientific thesis framing a research question — not a project report</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="body-text">
+    Before applying anywhere, sit down with your transcript and build a prerequisite mapping document: a table with each required area, which of your courses covers it, and the credit count. Many portals ask you to enter this directly, in what is called the "technical qualifications" section or "aptitude test." This is not optional and it is not a formality. Take it seriously.
+  </p>
+
+  <div class="callout callout-amber">
+    <strong>ECTS conversion for Indian credits:</strong> Most Indian universities do not use ECTS. As a general rule, 1 Indian credit (one lecture hour per week per semester) is roughly equivalent to 1.5 ECTS. Apply this consistently across all fields when mapping your courses. Some portals ask for your university's own credits rather than ECTS, in which case enter your numbers as-is and note the system in the comments field.
+  </div>
+
+  <div class="section-label" style="margin-top:2rem">How prerequisite entry looks in a portal</div>
+  <p class="body-text">
+    Many portals ask you to enter courses in a specific text format, one per line. It typically looks like this:
+  </p>
+  <div class="mono-block">
+    <div class="mono-header">Example format — Technical Qualifications section</div>
+    <div class="mono-body">Module name;year completed;credit hours;grade;;
+Design and Analysis of Algorithms;2025;4;9;;
+Theory of Computation;2024;4;8;;
+Discrete Mathematics;2024;4;8;;
+Probability Statistics and Linear Programming;2024;4;7;;
+Software Engineering;2025;3;8;;</div>
+  </div>
+  <p class="body-text">
+    You can also split a course across two categories if it genuinely covers both areas. For example, Applied Mathematics I might count toward both Analysis and Linear Algebra — enter it in each category with proportional credits. This is permitted and encouraged.
+  </p>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">The motivation letter</div>
+  <p class="body-text">
+    The motivation letter is the most important document you write yourself. It is usually entered directly into the portal with a character limit (around 4,000 characters at Bonn, for example) rather than uploaded as a file.
+  </p>
+  <p class="body-text">
+    A strong letter covers five things: your research narrative (what you have been working on and what you found), your academic foundation (how your coursework prepared you for this), why this specific program at this specific university, which professors you want to work with and why, and your longer-term goals. The professor paragraph is the most important part. Go to the university's CS and AI faculty page, find one or two professors whose work connects to yours, read a recent paper from each, and write about why their research connects to what you have been doing. Generic letters that could apply to any university get filtered quickly.
+  </p>
+
+  <div class="callout callout-green">
+    <strong>When applying to multiple universities,</strong> keep your core narrative the same but rewrite the professor paragraph entirely for each one, update the program name throughout, and swap any university-specific references (each university has its own research centers and institutes worth mentioning).
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">The CV (Lebenslauf)</div>
+  <p class="body-text">
+    German academic CVs follow a specific format. Every period from secondary school to now must be accounted for with no gap longer than three months. Entries go in reverse chronological order. Countries of residence must be listed explicitly. Describe what you achieved rather than just listing responsibilities.
+  </p>
+
+  <div class="two-col">
+    <div class="info-card green">
+      <div class="card-tag">Include</div>
+      <div class="card-title">What to put in</div>
+      <div class="card-body">All education with exact dates, research internships (name the supervisor and institution), industry internships with role and tasks, publications with venues, awards and scholarships, open-source projects with links, and all countries where you have lived.</div>
+    </div>
+    <div class="info-card red">
+      <div class="card-tag">Leave out</div>
+      <div class="card-title">What to skip</div>
+      <div class="card-body">A photo (not needed on German academic CVs), vague role descriptions, unexplained timeline gaps, and anything that cannot be verified. No "hardworking team player" type language.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">The Expected Completion Form</div>
+  <p class="body-text">
+    If you have not yet graduated when you apply, most universities require an Expected Completion of Studies form stamped by your examination office. The form typically has three options: all requirements fulfilled and the certificate is being issued, all exams passed but administrative steps are pending, or exams are not yet fully completed with remaining work stated as a fraction of one full year of study.
+  </p>
+  <p class="body-text">
+    If you have sat your final exams but results are not yet declared, tick option 3. If results are declared but your degree certificate has not been issued, tick option 2. The remaining workload is expressed as a fraction of one year — for a university where one year is roughly 52 credits, half a semester remaining would be written as 26/52.
+  </p>
+
+  <div class="callout callout-amber">
+    <strong>Dealing with your examination office:</strong> Many Indian examination offices are unfamiliar with this form. When you go to get it stamped, attach the form's own instructions and specifically point them to the footnote that says "use your university's own credit system." This usually resolves any confusion about what numbers to fill in.
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">What makes a strong application</div>
+  <div class="doc-list">
+    <div class="doc-item">
+      <div class="doc-tag">HIGHEST WEIGHT</div>
+      <div class="doc-body"><strong>Academic publications.</strong> A first-authored paper at a top venue like ICML, NeurIPS, AAAI, ACL, ICLR, or CVPR is transformative for your application. Even a paper at a solid workshop or regional venue helps significantly. Upload every paper you have, including preprints and work that has been accepted but not yet published.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">HIGH</div>
+      <div class="doc-body"><strong>GPA and mathematics coverage.</strong> GPA matters but is not decisive alone. Strong scores in advanced mathematics (probability, statistics, linear algebra, analysis) and theory courses carry significant weight.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">HIGH</div>
+      <div class="doc-body"><strong>Research internships.</strong> International research experience with a named faculty supervisor is valued. Document these carefully with certificates showing dates, tasks, and outcomes.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">MEDIUM</div>
+      <div class="doc-body"><strong>Scientific thesis.</strong> A bachelors thesis that frames a research question, reviews prior literature, presents a methodology and results, and draws conclusions. This is meaningfully different from a project report. Some universities weight this as heavily as publications.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">MEDIUM</div>
+      <div class="doc-body"><strong>Extracurricular achievements.</strong> Scholarships, competitions, open-source contributions, conference presentations (even without a full paper), tutoring and TA experience.</div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-tag">USEFUL</div>
+      <div class="doc-body"><strong>TOEFL above the minimum.</strong> A score of 100+ or IELTS 7.5+ signals strong communication ability and helps when programs are reviewing many borderline applications.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">Common rejection reasons</div>
+  <div class="three-col">
+    <div class="info-card red">
+      <div class="card-tag">Reason 1</div>
+      <div class="card-title">Missing theory courses</div>
+      <div class="card-body">No Theory of Computation, insufficient Discrete Mathematics, or weak algorithms coverage disqualifies many applicants at eligibility screening before anyone reviews the rest of the application.</div>
+    </div>
+    <div class="info-card red">
+      <div class="card-tag">Reason 2</div>
+      <div class="card-title">Thesis is a project report</div>
+      <div class="card-body">A final year project that builds an application or deploys a system without framing a research question in the context of existing literature is not considered a scientific thesis.</div>
+    </div>
+    <div class="info-card red">
+      <div class="card-tag">Reason 3</div>
+      <div class="card-title">Wrong or missed deadline</div>
+      <div class="card-body">Non-EU applicants often have an earlier deadline than domestic applicants at the same university. Missing it by even one day means automatic rejection regardless of how strong the application is.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">Applying to multiple universities</div>
+  <p class="body-text">
+    Applying to several German universities at once makes good sense. Direct-application universities cost nothing to apply to, deadlines often overlap, and you can make your final decision after seeing all offers. A reasonable approach is one or two strong targets, two or three solid mid-tier options, and two or three reliable choices. Keep a spreadsheet with every university, its portal type, deadline, documents required, and current submission status. Managing twelve applications without one is genuinely difficult.
+  </p>
+  <p class="body-text">
+    Some portals let you apply to multiple programs at the same university. At Bonn, for example, you can apply to AI, CS, and Cyber Security. Most fields are shared across programs, but you submit a separate application for each with a customized motivation letter. Be careful: once you submit one application at Bonn, shared fields are locked. Fill everything out completely before your first submission.
+  </p>
+</div>
+
+<!-- PART VI -->
+<div class="part-header">
+  <div class="part-header-inner">
+    <span class="part-number">Part VI</span>
+    <span class="part-title">Dorms, Visa, and After Acceptance</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Apply for student housing immediately</div>
+  <p class="body-text">
+    Student accommodation (Studentenwohnheime) in German university cities is managed by the Studentenwerk for each region. Demand is high and waiting lists are long — sometimes several months. As soon as you receive any offer of admission, apply to the Studentenwerk for that city even if you have not yet decided whether to accept. If you have offers from multiple cities, apply in all of them. You can cancel later. It costs nothing to register, and it protects your options.
+  </p>
+
+  <div class="guide-table-wrap">
+    <table class="guide-table">
+      <thead><tr><th>City</th><th>Organization</th><th>Website</th></tr></thead>
+      <tbody>
+        <tr><td>Bonn</td><td>Studierendenwerk Bonn</td><td>studierendenwerk-bonn.de</td></tr>
+        <tr><td>Berlin</td><td>Studierendenwerk Berlin</td><td>stw.berlin</td></tr>
+        <tr><td>Hamburg</td><td>Studierendenwerk Hamburg</td><td>studierendenwerk-hamburg.de</td></tr>
+        <tr><td>Heidelberg</td><td>Studierendenwerk Heidelberg</td><td>studierendenwerk.uni-heidelberg.de</td></tr>
+        <tr><td>Freiburg</td><td>Studierendenwerk Freiburg</td><td>swfr.de</td></tr>
+        <tr><td>Göttingen</td><td>Studierendenwerk Göttingen</td><td>studentenwerk-goettingen.de</td></tr>
+        <tr><td>Dresden</td><td>Studentenwerk Dresden</td><td>studentenwerk-dresden.de</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="section-label">The student visa</div>
+  <p class="body-text">
+    German student visas (Visum zu Studienzwecken) take 8 to 12 weeks from application to approval. Book your appointment at the German Embassy or Consulate in India straight away after accepting an offer — appointment slots fill up fast.
+  </p>
+
+  <div class="checklist">
+    <div class="check-item">
+      <div class="check-icon"></div>
+      <div><strong>Admission letter</strong> from the university, on official letterhead with stamp.</div>
+    </div>
+    <div class="check-item">
+      <div class="check-icon"></div>
+      <div><strong>Blocked account (Sperrkonto)</strong> with at least the required amount (around €11,208 for 2024/25 — verify the current figure). Fintiba, Expatrio, and Deutsche Bank are common options for students.</div>
+    </div>
+    <div class="check-item">
+      <div class="check-icon"></div>
+      <div><strong>Health insurance</strong> — German public health insurance (gesetzliche Krankenversicherung). TK, AOK, and Barmer are popular choices for students. You can arrange this in advance of arriving.</div>
+    </div>
+    <div class="check-item">
+      <div class="check-icon"></div>
+      <div><strong>Valid passport</strong> with at least two years of validity remaining.</div>
+    </div>
+    <div class="check-item">
+      <div class="check-icon"></div>
+      <div><strong>Accommodation proof</strong> — a dorm acceptance letter or rental agreement. Applying for Studentenwerk housing early is partly so you have this document in time for your visa appointment.</div>
+    </div>
+    <div class="check-item">
+      <div class="check-icon"></div>
+      <div><strong>Biometric photos</strong> and completed visa application form from the German Embassy website.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PART VII -->
+<div class="part-header" id="checklist">
+  <div class="part-header-inner">
+    <span class="part-number">Part VII</span>
+    <span class="part-title">Complete Checklist</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Before you start anything</div>
+  <div class="checklist">
+    <div class="check-item"><div class="check-icon"></div><div>Check your transcript against the prerequisites of every university on your list. If you do not meet them, remove that university.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Apply for your <strong>APS certificate</strong> straight away. Do not wait.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Book and take your <strong>TOEFL or IELTS</strong> if you have not already. Aim for 95+ iBT (TOEFL) or 7.0+ (IELTS). Some programs require 100+ or C1 level.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Scan all semester transcripts (originals, not Digilocker). Include the grading scale explanation page. Merge into a single PDF.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Build your <strong>prerequisite mapping document</strong> — a table matching each required subject area to your courses and credits.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Download your university's <strong>official module handbook</strong>.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Write your <strong>CV</strong> in German academic format. Every period accounted for, no gaps over three months, countries of residence listed.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Identify <strong>target professors</strong> at each university and read at least one recent paper from each.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Set up a spreadsheet to track universities, deadlines, portal types, and submission status.</div></div>
+  </div>
+
+  <div class="section-label" style="margin-top:2rem">For VPD universities (submit by early April)</div>
+  <div class="checklist">
+    <div class="check-item"><div class="check-icon"></div><div>Create uni-assist account and pay the membership fee.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Submit VPD application for each VPD university with all required documents including your APS certificate.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Complete any aptitude questionnaire within uni-assist for universities that require it.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Once the VPD arrives, apply through the university portal immediately.</div></div>
+  </div>
+
+  <div class="section-label" style="margin-top:2rem">During each application</div>
+  <div class="checklist">
+    <div class="check-item"><div class="check-icon"></div><div>Confirm you meet all mandatory credit minimums before starting.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Fill the prerequisite / technical qualifications section carefully. Do not rush it.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Customize the motivation letter: update the professor paragraph, the program name, and any university-specific references.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Upload all publications and research papers under the academic manuscripts section.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Get your Expected Completion Form stamped by your examination office if you have not yet graduated.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Double-check whether your deadline is the non-EU date or the general date. These are often different at the same university.</div></div>
+  </div>
+
+  <div class="section-label" style="margin-top:2rem">After acceptance</div>
+  <div class="checklist">
+    <div class="check-item"><div class="check-icon"></div><div>Apply for Studentenwerk housing in that city straight away. Do not wait.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Set up a blocked account (Sperrkonto) for the student visa.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Book a student visa appointment at the German Embassy. Slots fill up fast.</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Arrange German health insurance (TK, AOK, or Barmer are good starting points).</div></div>
+    <div class="check-item"><div class="check-icon"></div><div>Monitor your application portal for requests for additional documents and respond promptly.</div></div>
+  </div>
+</div>
+
+<hr class="page-divider" />
+
+<div class="section">
+  <div class="section-label">A final note</div>
+  <p class="body-text">
+    The German Masters application process is manageable once you understand its structure. The paperwork feels overwhelming at first because there are so many moving parts and the terminology is unfamiliar. But the actual work is straightforward if you start early, track everything in a spreadsheet, and treat the prerequisite mapping as seriously as you would any important exam.
+  </p>
+  <p class="body-text">
+    The author of this guide, a Computer Science graduate from India, applied to over a dozen German universities and received admissions to multiple programs in Machine Learning, AI, and Data Science. The process works if you work the process.
+  </p>
+</div>
+
+<footer>
+  <p>German Masters Guide for Indian Students &nbsp;&middot;&nbsp; Based on a real 2025/26 application cycle &nbsp;&middot;&nbsp; Winter Semester 2026/27</p>
+  <p style="margin-top:8px; font-size:11px">Deadlines and requirements change every cycle. Always verify with the official university website before applying.</p>
+</footer>
+
+</body>
+</html>
